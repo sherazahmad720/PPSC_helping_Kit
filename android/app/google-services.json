@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "495123048279",
+    "project_id": "ppsc-helping-kit",
+    "storage_bucket": "ppsc-helping-kit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495123048279:android:1d6ac24930d89fac2b4012",
+        "android_client_info": {
+          "package_name": "com.sherazi.ppsc_helping_kit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "495123048279-83ijmqfd1a1ruegcp2geu9hincqn1kke.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe7wFlzvgT6SGpJnK1mC_GU_42IfbgM64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "495123048279-83ijmqfd1a1ruegcp2geu9hincqn1kke.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
