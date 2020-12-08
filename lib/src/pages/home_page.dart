@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ppsc_helping_kit/src/controller/home_controller.dart';
 import 'package:ppsc_helping_kit/src/pages/year_page.dart';
 import 'package:ppsc_helping_kit/src/widgets/department_card.dart';
 import 'package:ppsc_helping_kit/src/widgets/main_heading.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 class HomePage extends StatelessWidget {
+  HomeController homeController = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("PPSC Helping Kit"),
+        actions: [
+          IconButton(
+              icon: Icon(Icons.upload_file),
+              onPressed: () {
+                homeController.uploadData();
+              })
+        ],
       ),
       body: Container(
         child: Padding(
@@ -27,7 +36,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        "Be  .",
+                        "FriendShip .",
                         style: TextStyle(
                           fontSize: 22.0,
                           fontFamily: "Horizon",
@@ -39,7 +48,7 @@ class HomePage extends StatelessWidget {
                       flex: 2,
                       child: RotateAnimatedTextKit(
                           repeatForever: true,
-                          text: ["AWESOME", "OPTIMISTIC", "DIFFERENT"],
+                          text: ["Sheraz", "Afshan", "Faizan"],
                           textStyle:
                               TextStyle(fontSize: 22.0, fontFamily: "Horizon"),
                           textAlign: TextAlign.start),
