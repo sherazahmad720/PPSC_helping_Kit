@@ -11,7 +11,9 @@ class DepartMentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(YearPage());
+        Get.to(YearPage(
+          deptName: text,
+        ));
       },
       child: Container(
         // width: 200,

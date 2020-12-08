@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ppsc_helping_kit/src/pages/doc_page.dart';
-import 'package:ppsc_helping_kit/src/widgets/doc_card.dart';
 
 class YearCard extends StatelessWidget {
   final Color color;
