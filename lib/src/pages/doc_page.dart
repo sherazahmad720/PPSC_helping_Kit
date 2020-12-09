@@ -24,6 +24,7 @@ class DocPage extends StatelessWidget {
                   itemBuilder: ((ctx, index) {
                     return DocCard(
                       text: _.docList[index].docName,
+                      link: _.docList[index].docLink,
                     );
                   })),
             ),

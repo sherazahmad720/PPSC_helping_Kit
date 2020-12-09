@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ppsc_helping_kit/src/pages/pdf_viewer_page.dart';
 
 class DocCard extends StatelessWidget {
-  final String text;
-  DocCard({this.text = ""});
+  final String text, link;
+  DocCard({this.text = "", this.link});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        Get.to(PdfveiwerPage(
+          docName: text,
+          link: link,
+        ));
+      },
       child: Container(
         height: 70,
         child: Card(

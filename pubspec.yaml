@@ -31,6 +31,8 @@ dependencies:
   get: ^3.22.2
   animated_text_kit: ^2.5.4
   cloud_firestore: ^0.14.4
+  flutter_cached_pdfview: ^0.2.3
+  # path_provider: ^1.5.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

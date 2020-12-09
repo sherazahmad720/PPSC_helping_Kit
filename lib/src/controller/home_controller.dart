@@ -189,7 +189,7 @@ class HomeController extends GetxController {
         return YearModel(
           yearName: doc.data()['YearName'],
           totalDocument: doc.data()['TotalDocs'],
-          department: doc.data()['DeptName'],
+          department: doc.data()['Dept'],
           color: doc.data()['Color'],
         );
       }).toList();
@@ -201,8 +201,8 @@ class HomeController extends GetxController {
     docList.clear();
     FirebaseFirestore.instance
         .collection('Documents')
-        .where('Dept', isEqualTo: department)
-        .where('year', isEqualTo: year)
+        .where('DeptName', isEqualTo: department)
+        .where('Year', isEqualTo: year)
         .get()
         .then((qshot) {
       docList = qshot.docs.map((doc) {
