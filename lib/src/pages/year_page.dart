@@ -43,6 +43,7 @@ class YearPage extends StatelessWidget {
                         return YearCard(
                           text: _.yearList[index].yearName,
                           color: Colors.red,
+                          department: _.yearList[index].department,
                         );
                       }),
                     ),

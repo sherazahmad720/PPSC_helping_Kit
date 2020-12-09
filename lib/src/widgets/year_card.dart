@@ -5,13 +5,17 @@ import 'package:ppsc_helping_kit/src/pages/doc_page.dart';
 class YearCard extends StatelessWidget {
   final Color color;
   final String text;
-  YearCard({this.color = Colors.white, this.text = ""});
+  final String department;
+  YearCard({this.color = Colors.white, this.text = "", this.department});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(DocPage());
+        Get.to(DocPage(
+          department: department,
+          year: text,
+        ));
       },
       child: Container(
         height: 50,

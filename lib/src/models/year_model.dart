@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class YearModel {
   String yearName;
   String department;

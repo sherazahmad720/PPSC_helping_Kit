@@ -1,14 +1,42 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ppsc_helping_kit/src/models/department_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ppsc_helping_kit/src/models/doc_model.dart';
 import 'package:ppsc_helping_kit/src/models/year_model.dart';
 
 import '../models/department_model.dart';
 
 class HomeController extends GetxController {
-  List<YearModel> yearList = [];
   List<DepartmentModel> deptList = [];
+  List<YearModel> yearList = [];
+  List<DocModel> docList = [];
+  List<DocModel> tempdocList = [
+    DocModel(
+        departmentName: "Police",
+        docLink: "",
+        docName: "First name",
+        year: "2015"),
+    DocModel(
+        departmentName: "Police",
+        docLink: "",
+        docName: "Second name",
+        year: "2015"),
+    DocModel(
+        departmentName: "Police",
+        docLink: "",
+        docName: "Third name",
+        year: "2015"),
+    DocModel(
+        departmentName: "Police",
+        docLink: "",
+        docName: "Fourth name",
+        year: "2015"),
+    DocModel(
+        departmentName: "Police",
+        docLink: "",
+        docName: "Fifth name",
+        year: "2015")
+  ];
   List<YearModel> tempyear = [
     // YearModel(
     //     yearName: "2010",
@@ -138,7 +166,20 @@ class HomeController extends GetxController {
     DepartmentModel(
         departmentName: "E-Tech", picUrl: "https://loremflickr.com/240/240"),
   ];
+
+  getDepartmentList() async {
+    FirebaseFirestore.instance.collection('DepartmentName').get().then((qshot) {
+      deptList = qshot.docs.map((doc) {
+        return DepartmentModel(
+            departmentName: doc.data()['DeptName'],
+            picUrl: doc.data()['PicUrl']);
+      }).toList();
+      update();
+    });
+  }
+
   getYearList(String condition) async {
+    yearList.clear();
     FirebaseFirestore.instance
         .collection('Year')
         .where('Dept', isEqualTo: condition)
@@ -156,12 +197,21 @@ class HomeController extends GetxController {
     });
   }
 
-  getDepartmentList() async {
-    FirebaseFirestore.instance.collection('DepartmentName').get().then((qshot) {
-      deptList = qshot.docs.map((doc) {
-        return DepartmentModel(
-            departmentName: doc.data()['DeptName'],
-            picUrl: doc.data()['PicUrl']);
+  getDocument({String department, String year}) async {
+    docList.clear();
+    FirebaseFirestore.instance
+        .collection('Documents')
+        .where('Dept', isEqualTo: department)
+        .where('year', isEqualTo: year)
+        .get()
+        .then((qshot) {
+      docList = qshot.docs.map((doc) {
+        return DocModel(
+          departmentName: doc.data()['DeptName'],
+          docLink: doc.data()['DocLink'],
+          docName: doc.data()['DocName'],
+          year: doc.data()['Year'],
+        );
       }).toList();
       update();
     });
@@ -169,16 +219,27 @@ class HomeController extends GetxController {
 
   addData() {}
   uploadData() async {
-    for (int i = 0; i < tempyear.length; i++) {
-      FirebaseFirestore.instance.collection("Year").add({
-        "YearName": tempyear[i].yearName,
-        "TotalDocs": tempyear[i].totalDocument,
-        "Color": tempyear[i].color.toString(),
-        "Dept": tempyear[i].department,
+    for (int i = 0; i < tempdocList.length; i++) {
+      FirebaseFirestore.instance.collection("Documents").add({
+        "DeptName": tempdocList[i].departmentName,
+        "DocLink": tempdocList[i].docLink,
+        "DocName": tempdocList[i].docName,
+        "Year": tempdocList[i].year,
       });
       print("Data uploaded");
     }
   }
+  // uploadData() async {
+  //   for (int i = 0; i < tempyear.length; i++) {
+  //     FirebaseFirestore.instance.collection("Year").add({
+  //       "YearName": tempyear[i].yearName,
+  //       "TotalDocs": tempyear[i].totalDocument,
+  //       "Color": tempyear[i].color.toString(),
+  //       "Dept": tempyear[i].department,
+  //     });
+  //     print("Data uploaded");
+  //   }
+  // }
   // uploadData() async {
   //   for (int i = 0; i < tempDepartment.length; i++) {
   //     FirebaseFirestore.instance.collection("DepartmentName").add({
