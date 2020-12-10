@@ -30,8 +30,13 @@ dependencies:
   cupertino_icons: ^1.0.0
   get: ^3.22.2
   animated_text_kit: ^2.5.4
+  flutter_share: ^1.0.2+1
+  flutter_icons: ^1.1.0
   cloud_firestore: ^0.14.4
   flutter_cached_pdfview: ^0.2.3
+  url_launcher: ^5.4.10
+  google_fonts: ^1.1.0
+  double_back_to_close_app: ^0.1.2
   # path_provider: ^1.5.1
 dev_dependencies:
   flutter_test:
@@ -52,6 +57,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/logo.png
+    - assets/images/sheraz1.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
