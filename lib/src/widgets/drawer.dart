@@ -6,7 +6,9 @@ import 'package:ppsc_helping_kit/src/pages/about_app.dart';
 import 'package:ppsc_helping_kit/src/pages/about_me.dart';
 import 'package:ppsc_helping_kit/src/pages/home_page.dart';
 import 'package:ppsc_helping_kit/src/pages/terms_condition_page.dart';
+import 'package:ppsc_helping_kit/src/pages/loginPage.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:get/get.dart';
 
 class DrawerList extends StatefulWidget {
   final selected;
@@ -133,10 +135,7 @@ class _DrawerListState extends State<DrawerList> {
             GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return TermsAndCondition();
-                  }));
+                  Get.to(LoginPage());
                 },
                 child: tileCard("Login", Icons.login)),
             line,
